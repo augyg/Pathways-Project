@@ -1,10 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    mode: 'production',
     devtool: 'source-map',
-
     entry: [
         './app/index.js'
     ],
@@ -21,14 +20,12 @@ module.exports = {
         })
     ],
     module: {
-        loaders: [{
-        test: /.js$/,
-        loader: 'babel-loader',
-        include: path.join(__dirname, 'app'),
-        exclude: /node_modules/,
-        query: {
-            presets: ['es2015', 'react']
-        }
+        rules: [
+            {
+                test: /.js$/,
+                loader: 'babel-loader',
+                include: path.join(__dirname, 'app'),
+                exclude: /node_modules/,
         }]
     }
 };
