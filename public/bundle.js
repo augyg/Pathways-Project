@@ -39903,17 +39903,9 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = {
   fetchUserData: _userActions.fetchUserData,
   releaseUserData: _userActions.releaseUserData
+};
 
-  /*const mapDispatchToProps = (dispatch) => ({
-    fetchUserData: () => {
-      dispatch(fetchUserData())
-    },
-    releaseUserData: () => {
-      dispatch(releaseUserData())
-    }
-  })*/
-
-};function loadData(store) {
+function loadData(store) {
   return store.dispatch((0, _userActions.fetchUserData)());
 }
 
@@ -39959,7 +39951,7 @@ Object.defineProperty(exports, "__esModule", {
 var _userActions = __webpack_require__(191);
 
 exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var _ref = arguments[1];
   var type = _ref.type,
       payload = _ref.payload;

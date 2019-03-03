@@ -40,15 +40,6 @@ const mapDispatchToProps = {
   releaseUserData
 }
 
-/*const mapDispatchToProps = (dispatch) => ({
-  fetchUserData: () => {
-    dispatch(fetchUserData())
-  },
-  releaseUserData: () => {
-    dispatch(releaseUserData())
-  }
-})*/
-
 function loadData(store) {
   return store.dispatch(fetchUserData());
 }
