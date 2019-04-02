@@ -1,9 +1,9 @@
 import { FETCH_USER_DATA, RELEASE_USER_DATA } from '../actions/userActions';
 
-export default (state = {}, {type, payload}) => {
+export default (state = null, {type, payload}) => {
   switch(type) {
     case FETCH_USER_DATA:
-      return payload.user;
+      return payload.data ? payload.data : state;
     case RELEASE_USER_DATA:
       return payload.user;
     default:

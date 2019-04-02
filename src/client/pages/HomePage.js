@@ -1,15 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>Pathways home</h1>
-    </div>   
-  );
+class HomePage extends Component {
+  renderLoggedIn() {
+    return this.props.user ? (
+      <p>{this.props.user.name} is logged in!</p>
+    ) : (
+      <p>There is no account logged in.</p>
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Pathways home</h1>
+        {this.renderLoggedIn()}
+      </div>
+    )
+  }
 }
 
-//TODO: Check if logged in on the home page instead of login page
+const loadData = (store) => {
+  //if(store.getState('auth')) {
+  //  fetchUserData
+  //}
+}
+
+const mapStateToProps = (state) => ({
+  user: state.user
+})
 
 export default {
-  component: HomePage
+  loadData,
+  component: connect(mapStateToProps)(HomePage)
 }; 

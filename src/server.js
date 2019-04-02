@@ -7,10 +7,11 @@ import { matchRoutes } from 'react-router-config';
 import Routes from './client/Routes';
 
 const app = express();
-
+app.use('/api', proxy('http://localhost:3001'))
 app.use(express.static('public'));
 app.get('*', (req, res) => {
-  const store = createStore(req);
+  const authToken = (req.cookies) ? req.cookies['auth_token'] : undefined;
+  const store = createStore(req, { auth: authToken });
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
     return route.loadData ? route.loadData(store) : null;
   })
