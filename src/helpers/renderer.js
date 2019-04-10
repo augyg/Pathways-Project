@@ -18,6 +18,7 @@ export default (req, store) => {
   return `
     <html>
       <head>
+        <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
       </head>
       <body>
         <div id="root">${content}</div>

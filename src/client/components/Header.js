@@ -14,7 +14,7 @@ const Header = (props) => {
           Logged in as {props.user.name}
           (<Link to="/" onClick={props.releaseUserData}>Logout</Link>)
         </div>
-      }   
+      } 
     </div>
   )
 }

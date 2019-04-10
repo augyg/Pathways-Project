@@ -4,7 +4,7 @@ import Header from './components/Header';
 
 const App = ({ route }) => {
   return (
-    <div>
+    <div className='App'>
       <Header/>
       {renderRoutes(route.routes)}
     </div>
@@ -12,6 +12,7 @@ const App = ({ route }) => {
 }
 
 const loadData = ({ dispatch }) => {
+  //load initial user data from cookies
   //return dispatch(fetchCurrentUser());
   return null;
 };
