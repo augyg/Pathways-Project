@@ -21,9 +21,7 @@ class HomePage extends Component {
 }
 
 const loadData = (store) => {
-  //if(store.getState('auth')) {
-  //  fetchUserData
-  //}
+
 }
 
 const mapStateToProps = (state) => ({

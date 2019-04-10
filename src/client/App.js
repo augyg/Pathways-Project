@@ -12,7 +12,10 @@ const App = ({ route }) => {
 }
 
 const loadData = ({ dispatch }) => {
-  //load initial user data from cookies
+  //TODO: load initial user data from cookies
+  //if(store.getState('auth')) {
+  //  fetchUserData
+  //}
   //return dispatch(fetchCurrentUser());
   return null;
 };
