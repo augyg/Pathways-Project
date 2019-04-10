@@ -1,6 +1,6 @@
 {
   "name": "pathways-hire",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Connecting Code, Careers, and Companies",
   "main": "server.js",
   "scripts": {
