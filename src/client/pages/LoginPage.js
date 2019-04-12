@@ -31,7 +31,6 @@ class LoginPage extends Component {
     const loginData = {username: this.state.username, password: this.state.password};
     console.log(loginData);
     this.props.fetchUserData(loginData);
-    //this.state.error = 'error';
   }
 
   redirectLoggedIn() {

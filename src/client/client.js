@@ -10,6 +10,8 @@ import Routes from './Routes';
 import reducers from './reducers';
 import {renderRoutes} from 'react-router-config';
 import {composeWithDevTools} from 'redux-devtools-extension';
+import StyleContext from 'isomorphic-style-loader/StyleContext';
+import App from './App'
 
 const axiosInstance = axios.create({
   baseURL: '/api'
@@ -21,11 +23,18 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk.withExtraArgument(axiosInstance)))
 );
 
+const insertCss = (...styles) => {
+  const removeCss = styles.map(style => style._insertCss())
+  return () => removeCss.forEach(dispose => dispose())
+}
+
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <div>{renderRoutes(Routes)}</div>
+      <StyleContext.Provider value={{insertCss}}>
+        <div>{renderRoutes(Routes)}</div>
+      </StyleContext.Provider>
     </BrowserRouter>
   </Provider>,
   document.querySelector('#root')
-);
+); 

@@ -21,6 +21,9 @@ const config = {
               presets: [
                 '@babel/react',
                 '@babel/env'
+              ],
+              plugins: [
+                "@babel/plugin-proposal-class-properties"
               ]
             }
           }
@@ -36,15 +39,20 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
+        use: ['isomorphic-style-loader', { loader: 'css-loader' }]
       }
+      /*{
+        test: /\.css$/,
+        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
+      }*/
     ]
-  },
+  }
+  /*,
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
     })
-  ]
+  ]*/
 };
 
 module.exports = config;
