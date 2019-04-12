@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
   // Tell webpack the root file of our client application
@@ -41,18 +40,8 @@ const config = {
         test: /\.css$/,
         use: ['isomorphic-style-loader', { loader: 'css-loader' }]
       }
-      /*{
-        test: /\.css$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
-      }*/
     ]
   }
-  /*,
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
-    })
-  ]*/
 };
 
 module.exports = config;

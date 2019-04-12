@@ -29,7 +29,6 @@ class LoginPage extends Component {
 
   handleLogin() {
     const loginData = {username: this.state.username, password: this.state.password};
-    console.log(loginData);
     this.props.fetchUserData(loginData);
   }
 
@@ -40,7 +39,6 @@ class LoginPage extends Component {
   }
 
   renderError() {
-    //return <div>{this.state.error}</div>
     if(this.props.error) {
       return <p style={{color: 'red'}}>{this.props.error.message}</p>
     } 

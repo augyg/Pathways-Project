@@ -11,7 +11,6 @@ import reducers from './reducers';
 import {renderRoutes} from 'react-router-config';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import StyleContext from 'isomorphic-style-loader/StyleContext';
-import App from './App'
 
 const axiosInstance = axios.create({
   baseURL: '/api'
@@ -22,6 +21,8 @@ const store = createStore(
   window.INITIAL_STATE,
   composeWithDevTools(applyMiddleware(thunk.withExtraArgument(axiosInstance)))
 );
+
+delete window.INITIAL_STATE;
 
 const insertCss = (...styles) => {
   const removeCss = styles.map(style => style._insertCss())
