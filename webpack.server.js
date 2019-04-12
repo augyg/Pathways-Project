@@ -27,12 +27,8 @@ const config = {
         }
       },
       {
-        test: /\.css$/,     
-        use: [
-          {
-            loader: 'css-loader'
-          }
-        ]
+          test: /\.css$/,
+          use: ['isomorphic-style-loader', { loader: 'css-loader' }]
       },
       {
         test: /\.js?$/,
@@ -45,8 +41,11 @@ const config = {
               presets: [
                 '@babel/react',
                 '@babel/env'
+              ],
+              plugins: [
+                "@babel/plugin-proposal-class-properties"
               ]
-            },
+            }
           }
         ]
       }
