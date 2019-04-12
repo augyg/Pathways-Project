@@ -1,6 +1,7 @@
 import App from './App';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import CreateAccountPage from './pages/CreateAccountPage';
 
 export default [
   {
@@ -14,6 +15,10 @@ export default [
       {
         ...LoginPage,
         path: '/login'
+      },
+      {
+        ...CreateAccountPage,
+        path: '/create'
       }
     ]
   }  
