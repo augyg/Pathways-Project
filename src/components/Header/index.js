@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { releaseUserData } from '../actions/userActions';
+import { logout } from '../../services/user';
 
 const Header = (props) => {
   return (
     <div>
       <Link to="/">Home</Link>
       {
-        (!props.user) ? 
+        (!props.user || !props.user.data) ? 
         <Link to="/login">Login</Link> :
         <div>
-          Logged in as {props.user.name}
-          (<Link to="/" onClick={props.releaseUserData}>Logout</Link>)
+          Logged in as {props.user.data.name}
+          (<Link to="/" onClick={props.logout}>Logout</Link>)
         </div>
       } 
     </div>
@@ -20,11 +20,10 @@ const Header = (props) => {
 }
 
 const mapDispatchToProps = {
-  releaseUserData
+  logout
 }
 
 const mapStateToProps = (store) => ({
-  auth: store.auth,
   user: store.user
 })
 
