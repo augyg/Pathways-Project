@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { logout } from '../../services/user';
 
 const Header = (props) => {
   return (
@@ -19,12 +17,4 @@ const Header = (props) => {
   )
 }
 
-const mapDispatchToProps = {
-  logout
-}
-
-const mapStateToProps = (store) => ({
-  user: store.user
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

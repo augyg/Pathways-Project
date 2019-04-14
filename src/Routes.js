@@ -1,7 +1,7 @@
-import App from './scenes/index';
-import HomePage from './scenes/Home';
-import LoginPage from './scenes/Login';
-import RegisterPage from './scenes/Register';
+import App from './containers/index';
+import HomePage from './containers/Home';
+import LoginPage from './containers/Login';
+import RegisterPage from './containers/Register';
 
 export default [
   {
