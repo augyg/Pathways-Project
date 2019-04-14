@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 import {Provider} from 'react-redux';
 import Routes from './Routes';
-import reducers from './reducers';
+import reducers from './services/reducers';
 import {renderRoutes} from 'react-router-config';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import StyleContext from 'isomorphic-style-loader/StyleContext';

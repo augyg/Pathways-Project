@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUserData, releaseUserData } from '../actions/userActions';
+import { login } from '../../services/user';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -17,10 +17,6 @@ class LoginPage extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
 
-  componentDidMount() {
-    // this.releaseFormErrors();
-  }
-
   handleChange(event) {
     this.setState({ 
       [event.target.name]: event.target.value
@@ -29,11 +25,11 @@ class LoginPage extends Component {
 
   handleLogin() {
     const loginData = {username: this.state.username, password: this.state.password};
-    this.props.fetchUserData(loginData);
+    this.props.login(loginData);
   }
 
   redirectLoggedIn() {
-    if(this.props.user) {
+    if(this.props.user && this.props.user.data) {
       return <Redirect to="/"/>
     }
   }
@@ -66,13 +62,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  fetchUserData,
-  releaseUserData
+  login
 }
 
 function loadData(store) {
   //TODO: Check cookies to see if they are authenticated
-  return store.dispatch(fetchUserData({username: 'kyle13524', password: 'monkeys123'}));
+  //return store.dispatch(login({username: 'kyle13524', password: 'monkeys123'}));
 }
 
 export default {
