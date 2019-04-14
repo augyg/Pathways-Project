@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import style from '../../Test.css';
 
-class RegisterProgrammer extends Component {
+class CreateAccountProgrammer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      
+      selectedResume: undefined
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleFileChange = this.handleFileChange.bind(this);
   }
 
   handleChange(event) {
@@ -22,6 +24,19 @@ class RegisterProgrammer extends Component {
 
   handleSubmit() {
     console.log('submit', this.state.programmerName)
+  }
+
+  // handleFileChange(event) {
+  //   this.setState({
+  //     selectedResume: event.target.files[0]
+  //   })
+  // }
+
+  renderFileName() {
+    return (this.state.selectedResume) ?
+      this.state.selectedResume.name
+    :
+      "Choose file"
   }
 
   render() {
@@ -50,11 +65,11 @@ class RegisterProgrammer extends Component {
           <div className="form-row">
             <div className="form-group col-md-6">
               <label>Password</label>
-              <input type="password" className="form-control" placeholder="Password" required />
+              <input type="password" class="form-control" placeholder="Password" required />
             </div>
             <div className="form-group col-md-6">
               <label >Confirm Password</label>
-              <input type="password" className="form-control" placeholder="Password" required/>
+              <input type="password" class="form-control" placeholder="Password" required/>
             </div>
           </div>
 
@@ -84,12 +99,12 @@ class RegisterProgrammer extends Component {
           </div>
 
           <div className="form-row">
-            <div className="form-group col-md-6">
+            <div class="form-group col-md-6">
               <label>Date of Birth</label>
               <input type="date" className="form-control" placeholder="Date of Birth" required/>
             </div>
 
-            <div className="form-group col-md-6">
+            <div class="form-group col-md-6">
               <label>Phone Number (Optional)</label>
               <input type="text" className="form-control" placeholder="Phone Number" required/>
             </div>
@@ -120,4 +135,5 @@ const mapStateToProps = (state) => ({
   error: state.error
 })
 
-export default connect(mapStateToProps)(RegisterProgrammer);
+export default connect(mapStateToProps)(CreateAccountProgrammer);
+

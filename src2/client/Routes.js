@@ -1,8 +1,8 @@
-import App from './scenes/index';
-import HomePage from './scenes/Home';
-import LoginPage from './scenes/Login';
-import RegisterPage from './scenes/Register';
-import Profile from './scenes/Profile';
+import App from './App';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import CreateAccountPage from './pages/CreateAccountPage';
+import Profile from './pages/Profile';
 
 export default [
   {
@@ -18,8 +18,8 @@ export default [
         path: '/login'
       },
       {
-        ...RegisterPage,
-        path: '/register'
+        ...CreateAccountPage,
+        path: '/create'
       },
       {
         ...Profile,

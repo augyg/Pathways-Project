@@ -25,7 +25,13 @@ class LoginPage extends Component {
 
   handleLogin() {
     const loginData = {username: this.state.username, password: this.state.password};
+<<<<<<< HEAD:src2/client/pages/LoginPage.js
+    console.log(loginData);
+    this.props.fetchUserData(loginData);
+    //this.state.error = 'error';
+=======
     this.props.login(loginData);
+>>>>>>> origin/mvp:src2/scenes/Login/index.js
   }
 
   redirectLoggedIn() {

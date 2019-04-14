@@ -9,10 +9,8 @@ import withStyles from 'isomorphic-style-loader/withStyles';
 const App = ({ route }) => {
   return (
     <div className="app">
-      <Header/>   
-      <div className="app-body">
-        {renderRoutes(route.routes)}
-      </div>
+      <Header/>    
+      {renderRoutes(route.routes)}
     </div>
   );
 }

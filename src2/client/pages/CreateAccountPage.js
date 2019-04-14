@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import withStyles from 'isomorphic-style-loader/withStyles';
-import s from './styles.css';
 
-import RegisterCompany from './components/RegisterCompany';
-import RegisterProgrammer from './components/RegisterProgrammer';
+import CreateAccountCompany from '../components/CreateAccountCompany';
+import CreateAccountProgrammer from '../components/CreateAccountProgrammer';
 
-class RegisterPage extends Component {
+class CreateAccountPage extends Component {
   constructor(props) {
     super(props);
 
@@ -29,8 +27,8 @@ class RegisterPage extends Component {
 
     return (
       <div className="align-center">
-        <h1 className="display-4 text-center">Create Account</h1>
-        <ul className="pagination justify-content-center" style={{marginTop: 20}}>
+        <span className="display-4">Create Account</span>
+        <ul className="pagination justify-content-center"  style={{marginTop: 20}}>
           <li className="page-item account-type-selector" onClick={() => this.setAccountType('programmer')}>
             <a className="page-link text-center" style={programmerStyle}>Programmer</a>
           </li>
@@ -40,9 +38,9 @@ class RegisterPage extends Component {
         </ul>
         {
           (this.state.selectedAccountType === 'company') ?
-          <RegisterCompany />
+          <CreateAccountCompany />
             :
-          <RegisterProgrammer />
+          <CreateAccountProgrammer />
         }
       </div>
 
@@ -56,5 +54,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default {
-  component: withStyles(s)(connect(mapStateToProps)(RegisterPage))
+  component: connect(mapStateToProps)(CreateAccountPage)
 }
