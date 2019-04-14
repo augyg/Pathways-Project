@@ -18,11 +18,9 @@ const Header = (props) => {
           <li className="nav-item">
             {
               (!props.user || !props.user.data) ?
-                <Link to="/login" className="nav-link text-white">Login</Link> :
-                <div>
-                  Logged in as {props.user.data.name}
-                  (<Link to="/" className="nav-link text-white" onClick={props.logout}>Logout</Link>)
-                </div>
+                <Link to="/login" className="nav-link text-white">Login</Link> 
+              :
+                <Link to="/" className="nav-link text-white" onClick={props.logout}>Logout</Link>
             }
           </li>
         </ul>

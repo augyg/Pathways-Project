@@ -4,7 +4,7 @@ import {
 } from './actions';
 
 import {loginFailed} from '../error/actions';
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
 
 export const login = (data = null) => async (dispatch, getState, api) => { 
   let authToken = data.authToken;
@@ -31,3 +31,7 @@ export const logout = () => async (dispatch) => {
   cookie.remove('authToken');
   dispatch(endUserSession());
 };
+
+export const register = (data) => async (dispatch) => {
+
+}

@@ -13,7 +13,9 @@ class LoginPage extends Component {
   }
 
   redirectLoggedIn () {
+    console.log('this.props.user', this.props.user);
     if(this.props.user && this.props.user.data) {
+
       return <Redirect to="/"/>
     }
   }

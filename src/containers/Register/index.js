@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './styles.css';
 
+import { register } from '../../services/user';
+
 import RegisterCompany from './components/RegisterCompany';
 import RegisterProgrammer from './components/RegisterProgrammer';
 
@@ -53,6 +55,10 @@ const mapStateToProps = (state) => ({
   error: state.error
 })
 
+const mapDispatchToProps = {
+  register
+}
+
 export default {
-  component: withStyles(s)(connect(mapStateToProps)(RegisterPage))
+  component: withStyles(s)(connect(mapStateToProps, mapDispatchToProps)(RegisterPage))
 }

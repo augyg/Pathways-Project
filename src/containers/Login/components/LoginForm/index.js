@@ -8,16 +8,16 @@ const LoginForm = (props) => {
   }
   const handleLogin = (event) => {
     event.preventDefault();
-    const username = event.target.username.value;
+    const email = event.target.email.value;
     const password = event.target.password.value;
-    props.login({username, password});
+    props.login({email, password});
   }
   return (
     <form onSubmit={handleLogin}>
       <h1>Pathways</h1>
       {renderError()}
-      <label>Username:</label>
-      <input name="username"/><br/>
+      <label>Email:</label>
+      <input name="email"/><br/>
       <label>Password:</label>
       <input name="password"/><br/>
       <button>Log in!</button>
