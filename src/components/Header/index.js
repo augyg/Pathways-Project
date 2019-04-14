@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { releaseUserData } from '../actions/userActions';
+import { logout } from '../../services/user';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from '../../Test.css';
 
@@ -19,27 +19,25 @@ const Header = (props) => {
           </li>
           <li className="nav-item">
             {
-              (!props.user) ?
+              (!props.user || !props.user.data) ? 
                 <Link to="/login" className="nav-link text-white">Login</Link> :
                 <div>
-                  Logged in as {props.user.name}
-                  (<Link to="/" className="nav-link text-white" onClick={props.releaseUserData}>Logout</Link>)
+                  Logged in as {props.user.data.name}
+                  (<Link to="/" className="nav-link text-white" onClick={props.logout}>Logout</Link>)
                 </div>
             }
           </li>
         </ul>
       </div>
     </div>
-
   )
 }
 
 const mapDispatchToProps = {
-  releaseUserData
+  logout
 }
 
 const mapStateToProps = (store) => ({
-  auth: store.auth,
   user: store.user
 })
 

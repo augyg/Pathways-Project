@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import style from '../../Test.css';
+import s from './styles.css';
 
-class CreateAccountProgrammer extends Component {
+class RegisterProgrammer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      selectedResume: undefined
+      
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleFileChange = this.handleFileChange.bind(this);
   }
 
   handleChange(event) {
@@ -25,12 +24,6 @@ class CreateAccountProgrammer extends Component {
   handleSubmit() {
     console.log('submit', this.state.programmerName)
   }
-
-  // handleFileChange(event) {
-  //   this.setState({
-  //     selectedResume: event.target.files[0]
-  //   })
-  // }
 
   renderFileName() {
     return (this.state.selectedResume) ?
@@ -135,5 +128,4 @@ const mapStateToProps = (state) => ({
   error: state.error
 })
 
-export default connect(mapStateToProps)(CreateAccountProgrammer);
-
+export default connect(mapStateToProps)(RegisterProgrammer);

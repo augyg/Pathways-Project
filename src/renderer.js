@@ -1,11 +1,11 @@
 import React from 'react';
+import serialize from 'serialize-javascript';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
-import serialize from 'serialize-javascript';
-import Routes from '../client/Routes';
 import StyleContext from 'isomorphic-style-loader/StyleContext';
+import Routes from './Routes';
 
 export default (req, store) => {
   const css = new Set()

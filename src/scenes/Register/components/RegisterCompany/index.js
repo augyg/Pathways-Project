@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import industries from './industries'
 
-
-class CreateAccountCompany extends Component {
+class RegisterCompany extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       companyName: ''
     }
-
-    // this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit() {
@@ -41,8 +38,7 @@ class CreateAccountCompany extends Component {
               </select>
             </div>
           </div>
-
-
+          
           <div className="form-row">
             <div className="form-group col-md-6">
               <label>First Name</label>
@@ -130,4 +126,4 @@ const mapStateToProps = (state) => ({
   error: state.error
 })
 
-export default connect(mapStateToProps)(CreateAccountCompany)
+export default connect(mapStateToProps)(RegisterCompany)

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import CreateAccountCompany from '../components/CreateAccountCompany';
-import CreateAccountProgrammer from '../components/CreateAccountProgrammer';
+import RegisterCompany from './components/CreateAccountCompany';
+import RegisterProgrammer from './components/CreateAccountProgrammer';
 
-class CreateAccountPage extends Component {
+class RegisterPage extends Component {
   constructor(props) {
     super(props);
 
@@ -38,9 +38,9 @@ class CreateAccountPage extends Component {
         </ul>
         {
           (this.state.selectedAccountType === 'company') ?
-          <CreateAccountCompany />
+          <RegisterCompany />
             :
-          <CreateAccountProgrammer />
+          <RegisterProgrammer />
         }
       </div>
 
@@ -54,5 +54,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default {
-  component: connect(mapStateToProps)(CreateAccountPage)
+  component: connect(mapStateToProps)(RegisterPage)
 }
