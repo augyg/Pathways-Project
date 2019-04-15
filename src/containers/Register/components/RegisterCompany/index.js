@@ -1,5 +1,5 @@
 import React from 'react';
-import industries from './industries'
+import industries from './industries';
 
 const RegisterCompany = (props) => {
   const handleSubmit = (event) => {
@@ -16,9 +16,10 @@ const RegisterCompany = (props) => {
       city: event.target.city.value,
       province: event.target.province.value,
       postalCode: event.target.postalCode.value,
-      tos: event.target.tos.value,
-      subscribe: event.target.subscribe.value
+      tos: event.target.tos.value === 'on' ? 1 : 0,
+      subscribe: event.target.subscribe.value === 'on' ? 1 : 0
     };
+    console.log('formValues', formValues);
     props.register(formValues);
   }
 

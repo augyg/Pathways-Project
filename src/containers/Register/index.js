@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './styles.css';
@@ -11,11 +12,9 @@ import RegisterProgrammer from './components/RegisterProgrammer';
 class RegisterPage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       selectedAccountType: 'programmer'
     }
-
     this.setAccountType = this.setAccountType.bind(this)
   }
 
@@ -23,6 +22,19 @@ class RegisterPage extends Component {
     this.setState({
       selectedAccountType: type
     })
+  }
+
+  redirectLoggedIn() {
+    if(this.props.user && this.props.user.data) {
+      return <Redirect to="/"/>
+    }
+  }
+
+  renderError () {
+    if(this.props.error) {
+      window.scrollTo(0, 0);
+      return <p style={{color: 'red'}}>{this.props.error.message}</p>
+    } 
   }
 
   render() {
@@ -40,19 +52,22 @@ class RegisterPage extends Component {
             <a className="page-link text-center"  style={companyStyle}>Company</a>
           </li>
         </ul>
+        {this.renderError()}
         {
           (this.state.selectedAccountType === 'company') ?
-          <RegisterCompany />
+          <RegisterCompany register={this.props.register}/>
             :
-          <RegisterProgrammer />
-        }
+          <RegisterProgrammer register={this.props.register}/>
+        }    
+        {this.redirectLoggedIn()}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  error: state.error
+  error: state.error,
+  user: state.user
 })
 
 const mapDispatchToProps = {

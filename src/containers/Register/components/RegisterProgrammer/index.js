@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const RegisterProgrammer = (props) => {
   const handleSubmit = (event) => {
@@ -15,9 +14,11 @@ const RegisterProgrammer = (props) => {
       postalCode: event.target.postalCode.value,
       dateOfBirth: event.target.dateOfBirth.value,
       phoneNumber: event.target.phoneNumber.value,
-      tos: event.target.tos.value,
-      subscribe: event.target.subscribe.value
+      tos: event.target.tos.value === 'on' ? 1 : 0,
+      subscribe: event.target.subscribe.value === 'on' ? 1 : 0
     };
+    console.log('formValues', formValues);
+    console.log('props.register', props.register)
     props.register(formValues);
   }
   return (
@@ -109,8 +110,4 @@ const RegisterProgrammer = (props) => {
   );
 }
 
-const mapStateToProps = (state) => ({
-  error: state.error
-})
-
-export default connect(mapStateToProps)(RegisterProgrammer);
+export default RegisterProgrammer;

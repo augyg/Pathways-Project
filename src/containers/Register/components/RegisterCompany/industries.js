@@ -70,7 +70,7 @@ export default [
   'Law Practice',
   'Legal Services',
   'Legislative Office',
-  ' Travel & Tourism',
+  'Travel & Tourism',
   'Libraries',
   'Logistics and Supply Chain',
   'Luxury Goods & Jewelry',
