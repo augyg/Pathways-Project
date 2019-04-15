@@ -43,7 +43,6 @@ export const register = (data) => async (dispatch, getState, api) => {
     } else {
       dispatch(registerFailed());
     }
-    
   }
 }
 

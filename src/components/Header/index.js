@@ -4,6 +4,7 @@ import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './styles.css';
 
 const Header = (props) => {
+  let userLoggedIn = (!props.user || !props.user.data);
   return (
     <div className="navbar navbar-default" >
       <Link to="/" className="nav-link text-white active">Pathways</Link>
@@ -12,12 +13,15 @@ const Header = (props) => {
           <li className="nav-item">
             <Link to="/profile" className="nav-link text-white">Profile</Link>
           </li>
-          <li className="nav-item">
-            <Link to="/register" className="nav-link text-white">Register</Link>
-          </li>
+          {
+            (userLoggedIn) ?
+            <li className="nav-item">
+              <Link to="/register" className="nav-link text-white">Register</Link>
+            </li> : null
+          }    
           <li className="nav-item">
             {
-              (!props.user || !props.user.data) ?
+              (userLoggedIn) ?
                 <Link to="/login" className="nav-link text-white">Login</Link> 
               :
                 <Link to="/" className="nav-link text-white" onClick={props.logout}>Logout</Link>

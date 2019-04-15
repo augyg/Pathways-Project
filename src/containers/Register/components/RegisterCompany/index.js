@@ -19,7 +19,6 @@ const RegisterCompany = (props) => {
       tos: event.target.tos.value === 'on' ? 1 : 0,
       subscribe: event.target.subscribe.value === 'on' ? 1 : 0
     };
-    console.log('formValues', formValues);
     props.register(formValues);
   }
 
