@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import requireAuth from '../_hocs/RequireAuth';
 
 class Profile extends Component {
   constructor(props) {
@@ -17,5 +18,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default {
-  component: connect(mapStateToProps)(Profile)
+  component: connect(mapStateToProps)(requireAuth(Profile))
 }
