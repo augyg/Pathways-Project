@@ -7,13 +7,13 @@ import { renderRoutes } from 'react-router-config';
 import StyleContext from 'isomorphic-style-loader/StyleContext';
 import Routes from './Routes';
 
-export default (req, store) => {
+export default (req, store, context) => {
   const css = new Set()
   const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()));
 
   const content = renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.path} context={{}}>
+      <StaticRouter location={req.path} context={context}>
         <StyleContext.Provider value={{insertCss}}>
           <div>{renderRoutes(Routes)}</div>
         </StyleContext.Provider>          
