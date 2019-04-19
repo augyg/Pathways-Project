@@ -7,7 +7,7 @@ export default (ChildComponent) => {
     render() {
       let loggedIn = (this.props.user && this.props.user.data);
       if(!loggedIn) {
-        return <Redirect to="/"/>
+        return <Redirect to="/login"/>
       } else {
         return <ChildComponent {...this.props} />
       }

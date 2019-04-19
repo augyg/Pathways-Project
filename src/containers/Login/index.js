@@ -2,18 +2,25 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../services/user';
+import { clearError } from '../../services/error/actions';
 import LoginForm from './components/LoginForm';
 
 class LoginPage extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      error: ''
+      formError: ''
+    }
+  }
+
+  componentDidUpdate() {
+    if(this.props.error !== null) {
+      this.setState({formError: this.props.error})
+      this.props.clearError();
     }
   }
 
   redirectLoggedIn () {
-    console.log('this.props.user', this.props.user);
     if(this.props.user && this.props.user.data) {
       return <Redirect to="/"/>
     }
@@ -22,7 +29,7 @@ class LoginPage extends Component {
   render() {
     return(
       <div>
-        <LoginForm login={this.props.login} error={this.props.error}/>
+        <LoginForm login={this.props.login} error={this.state.formError}/>
         {this.redirectLoggedIn()}
       </div> 
     )  
@@ -35,7 +42,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  login
+  login, clearError
 }
 
 export default {

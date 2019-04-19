@@ -3,10 +3,16 @@ import {
   endUserSession
 } from './actions';
 
-import {loginFailed, registerFailed, accountExists} from '../error/actions';
+import {
+  loginFailed, 
+  registerFailed, 
+  accountExists
+} from '../error/actions';
+
 import cookie from 'react-cookies';
 
 export const login = (data = null) => async (dispatch, getState, api) => { 
+  console.log('login');
   let authToken = data.authToken;
   if(!authToken) {
     let response = await api.post('/login', { ...data });
@@ -14,7 +20,7 @@ export const login = (data = null) => async (dispatch, getState, api) => {
       authToken = response.data.token;
       cookie.save('authToken', authToken);
     } else {
-      dispatch(loginFailed());
+      return dispatch(loginFailed());
     }
   }
 
@@ -22,7 +28,7 @@ export const login = (data = null) => async (dispatch, getState, api) => {
   if(response.data) {
     dispatch(setUserSession(authToken, response.data.user));
   } else {
-    dispatch(loginFailed());
+    return dispatch(loginFailed());
   }
 };
 

@@ -15,3 +15,8 @@ export const accountExists = () => ({
   type: ACCOUNT_EXISTS,
   payload: { message: 'Sorry, an account with that email already exists' }
 })
+
+export const CLEAR_ERROR = 'error:clearError';
+export const clearError = () => ({
+  type: CLEAR_ERROR
+})

@@ -3,6 +3,7 @@ import { renderRoutes } from 'react-router-config';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
 import { login, logout } from '../services/user';
+import { clearError } from '../services/error/actions';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './styles.css';
 
@@ -33,7 +34,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  login, logout
+  login, logout, clearError
 }
 
 const connectedComponent = connect(mapStateToProps, 
