@@ -5,3 +5,7 @@
   width: 100%;
   z-index: 10;
 }
+
+#logo { 
+  max-width: 36px;
+}

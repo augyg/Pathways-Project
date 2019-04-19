@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './styles.css';
+import logo from './images/logo.png';
 
 const Header = (props) => {
   let userLoggedIn = (props.user && props.user.data) ? 1 : 0;
@@ -14,8 +15,8 @@ const Header = (props) => {
   ]
   
   return (
-    <div className="navbar navbar-default" >
-      <Link to="/" className="navbar-left text-white active">Pathways</Link>
+    <div className="navbar navbar-default">
+      <Link to="/" className="navbar-left"><img id="logo" src={logo}/></Link>
       <div className="justify-content-end">
         <ul className="nav">
           {
