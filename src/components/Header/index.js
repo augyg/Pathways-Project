@@ -8,7 +8,7 @@ const Header = (props) => {
   let userLoggedIn = (!props.user || !props.user.data);
   return (
     <div className="navbar navbar-default">
-      <Link to="/" className="navbar-left"><img className="logo" src={logo}/></Link>
+      <Link to="/" className="navbar-left"><img id="logo" src={logo}/></Link>
       <div className="justify-content-end">
         <ul className="nav">
           <li className="nav-item">
