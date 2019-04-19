@@ -15,8 +15,7 @@ const Header = (props) => {
   
   return (
     <div className="navbar navbar-default" >
-    <a href="#" class="navbar-left"><img src="/path/to/image.png"></a>
-      <Link to="/" className="navbar-left">Pathways</Link>
+      <Link to="/" className="navbar-left text-white active">Pathways</Link>
       <div className="justify-content-end">
         <ul className="nav">
           {
