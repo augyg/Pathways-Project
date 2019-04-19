@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ProfileHeader from './components/ProfileHeader'
 
 class Profile extends Component {
   constructor(props) {
@@ -7,7 +8,15 @@ class Profile extends Component {
   }
   render(){
     return (
-      <h1>Profile Page!</h1>
+      <div className="container">
+        <ProfileHeader/>
+        {/* AS a list item: I need a profile header */}
+        {/* I need a test display bar */}
+        {/* Work experience component */}
+        {/* Volunteer experience bar */}
+        {/* Passions and interest component */}
+      </div>
+     
     )
   }
 }

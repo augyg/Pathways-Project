@@ -6,7 +6,7 @@ import s from './styles.css';
 const Header = (props) => {
   let userLoggedIn = (!props.user || !props.user.data);
   return (
-    <div className="navbar navbar-default" >
+    <div className="navbar navbar-default">
       <Link to="/" className="nav-link text-white active">Pathways</Link>
       <div className="justify-content-end">
         <ul className="nav">
