@@ -44,7 +44,7 @@ const RegisterCompany = (props) => {
             </select>
           </div>
         </div>
-        
+     
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>First Name</label>

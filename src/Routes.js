@@ -3,6 +3,7 @@ import HomePage from './containers/Home';
 import LoginPage from './containers/Login';
 import RegisterPage from './containers/Register';
 import Profile from './containers/Profile';
+import PageNotFound from './components/PageNotFound';
 
 export default [
   {
@@ -24,6 +25,9 @@ export default [
       {
         ...Profile,
         path: '/profile'
+      },
+      {
+        ...PageNotFound
       }
     ]
   }  

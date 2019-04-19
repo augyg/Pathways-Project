@@ -28,13 +28,9 @@ const config = {
           }
         ]
       },
-      {
-        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: 'file-loader',
-        options: {
-          name: 'public/media/[name].[ext]',
-          publicPath: url => url.replace(/public/, '')
-        }
+      {    
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: "file-loader!isomorphic-loader"   
       },
       {
         test: /\.css$/,
