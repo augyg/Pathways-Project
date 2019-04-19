@@ -6,14 +6,8 @@ const LoginForm = (props) => {
       return <p style={{color: 'red'}}>{props.error.message}</p>
     } 
   }
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    props.login({email, password});
-  }
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={props.handleLogin}>
       <h1>Pathways</h1>
       {renderError()}
       <label>Email:</label>

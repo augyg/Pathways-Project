@@ -1,5 +1,6 @@
 const path = require('path');
 const webpackNodeExternals = require('webpack-node-externals');
+const IsomorphicLoaderPlugin = require("isomorphic-loader/lib/webpack-plugin");
 
 const config = {
   // Inform webpack that we're building a bundle 
@@ -18,13 +19,8 @@ const config = {
   module: {
     rules: [
       {
-        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: 'file-loader',
-        options: {
-          name: 'public/media/[name].[ext]',
-          publicPath: url => url.replace(/public/, ''),
-          emit: false
-        }
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: "file-loader!isomorphic-loader"
       },
       {
           test: /\.css$/,
@@ -32,7 +28,6 @@ const config = {
       },
       {
         test: /\.js?$/,
-        //query: {compact: false},
         use: [
           {
             loader: 'babel-loader',
@@ -51,6 +46,9 @@ const config = {
       }
     ]
   }, 
+  plugins: [
+    new IsomorphicLoaderPlugin()
+  ],
   externals: [webpackNodeExternals()]
 };
 

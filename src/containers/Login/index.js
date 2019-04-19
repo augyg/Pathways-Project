@@ -13,16 +13,22 @@ class LoginPage extends Component {
   }
 
   redirectLoggedIn () {
-    console.log('this.props.user', this.props.user);
     if(this.props.user && this.props.user.data) {
       return <Redirect to="/"/>
     }
   }
 
+  handleLogin(event) {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    props.login({email, password});
+  }
+
   render() {
     return(
       <div>
-        <LoginForm login={this.props.login} error={this.props.error}/>
+        <LoginForm handleLogin={this.handleLogin} error={this.props.error}/>
         {this.redirectLoggedIn()}
       </div> 
     )  
