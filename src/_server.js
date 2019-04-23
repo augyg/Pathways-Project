@@ -59,3 +59,5 @@ function initializeStore(req, initialState = {}) {
   );
   return store;
 }
+
+global.__basedir = __dirname;

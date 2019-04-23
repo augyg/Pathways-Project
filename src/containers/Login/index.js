@@ -11,6 +11,7 @@ class LoginPage extends Component {
     this.state = {
       formError: ''
     }
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   componentDidUpdate() {
@@ -30,13 +31,13 @@ class LoginPage extends Component {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    props.login({email, password});
+    this.props.login({email, password});
   }
 
   render() {
     return(
       <div>
-        <LoginForm handleLogin={this.handleLogin} error={this.props.error}/>
+        <LoginForm handleLogin={this.handleLogin} error={this.state.formError}/>
         {this.redirectLoggedIn()}
       </div> 
     )  

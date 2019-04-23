@@ -11,9 +11,9 @@ const LoginForm = (props) => {
       <h1>Pathways</h1>
       {renderError()}
       <label>Email:</label>
-      <input name="email"/><br/>
+      <input type="email" name="email"/><br/>
       <label>Password:</label>
-      <input name="password"/><br/>
+      <input type="password" name="password"/><br/>
       <button>Log in!</button>
     </form>
   )

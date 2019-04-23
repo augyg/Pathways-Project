@@ -21,7 +21,6 @@ const Header = (props) => {
         <ul className="nav">
           {
             headerNavOptions.map((o, i) => {
-              console.log('userLoggedIn', userLoggedIn, 'o.authState', o.authState, '&', (userLoggedIn ^ o.authState))
               return (userLoggedIn ^ o.authState === 0) ? (
                 <li key={i} className="nav-item">
                   <Link to={o.link} className="nav-link text-white" onClick={o.onClick}>{o.content}</Link>

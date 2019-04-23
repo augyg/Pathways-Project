@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import requireAuth from '../_hocs/RequireAuth';
+import ProfileHeader from './Programmer/ProfileHeader';
 
 class Profile extends Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class Profile extends Component {
   }
   render(){
     return (
-      <h1>Profile Page!</h1>
+      <div className="container-fluid">
+        <ProfileHeader test="test"/>
+      </div>
     )
   }
 }

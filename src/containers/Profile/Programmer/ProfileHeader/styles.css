@@ -1,0 +1,21 @@
+.social-media-link {
+  max-width: 20px;
+  margin: 5px auto;
+}
+
+#profilePicture {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 5px 10px;
+}
+
+#nameLabel {
+  font-size: 12px;
+  margin: auto;
+  text-align: center;
+}
+
+#certificate {
+  max-width: 100px;
+  margin: 5px 10px;
+}
