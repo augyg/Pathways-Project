@@ -9,7 +9,7 @@ class Profile extends Component {
   }
   render(){
     return (
-      <div className="container-fluid">
+      <div className="container-fluid page">
         <ProfileHeader test="test"/>
       </div>
     )

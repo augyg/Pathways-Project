@@ -12,12 +12,6 @@
   width: 40%;
 }
 
-.vl {
-  border-left: 1.5px inset lightgray;
-  height: 110px;
-  margin-left: 18px;
-}
-
 #remember-me{
   padding: 0;
 }

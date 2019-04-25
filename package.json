@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@coreui/icons": "^0.3.0",
     "axios": "^0.16.2",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",

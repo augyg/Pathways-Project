@@ -1,12 +1,12 @@
 {
   "valid": true,
   "version": "2.0.2",
-  "timestamp": 1555981656530,
+  "timestamp": 1556153161062,
   "context": "",
   "output": {
     "path": "build",
     "filename": "bundle.js",
     "publicPath": ""
   },
-  "assetsFile": "build/isomorphic-assets.json"
+  "assetsFile": "build\\isomorphic-assets.json"
 }

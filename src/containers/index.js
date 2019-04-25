@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     const {route, logout, user} = this.props;
     return (
-      <div style={s.body}>
+      <div className="" style={s.body}>
         <Header logout={logout} user={user}/>
         {renderRoutes(route.routes)}
       </div>
