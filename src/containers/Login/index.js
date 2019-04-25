@@ -31,6 +31,7 @@ class LoginPage extends Component {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
+    console.log('email', email, 'password', password);
     this.props.login({email, password});
   }
 

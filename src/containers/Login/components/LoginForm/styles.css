@@ -1,0 +1,17 @@
+.form-align {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.div{
+  padding: 0;
+}
+
+#login-button{
+  background-color: #2f80ed;
+  width: 40%;
+}
+
+#remember-me{
+  padding: 0;
+}

@@ -9,7 +9,7 @@ import gmail from '../../../../../../images/gmail.png';
 
 const ProfileHeader = (props) => {
   return (
-    <div className="row border p-2">
+    <div className="row border p-2 bg-white">
       <div className="column">
         <img className="rounded-circle" id="profilePicture" src={defaultProfile}/>
         <h5 id="nameLabel">Kyle Jensen</h5>
