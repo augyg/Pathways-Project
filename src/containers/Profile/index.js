@@ -11,7 +11,7 @@ class Profile extends Component {
   render() {
     return (
       <div className="container-fluid page">
-        {(props.accountType === 0 ) ? (
+        {(this.props.accountType === 0 ) ? (
           <ProgrammerProfile/>
         ) : (
           <CompanyProfile/>
