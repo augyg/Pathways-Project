@@ -18,7 +18,7 @@ extendRequire().then(function () {
   app.use(express.static('public'));
   app.get('*', (req, res) => {
     const authToken = (req.cookies) ? req.cookies['authToken'] : undefined;
-    const store = initializeStore(req, { user: { authToken } });
+    const store = initializeStore(req, { auth: { token: authToken } });
     const promises = matchRoutes(Routes, req.path).map(({ route }) => {
       return route.loadData ? route.loadData(store) : null;
     }).map(promise => {

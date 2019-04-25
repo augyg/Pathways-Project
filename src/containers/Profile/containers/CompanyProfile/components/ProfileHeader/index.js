@@ -1,11 +1,11 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './styles.css';
-import defaultProfile from '../../../../images/default_profile.jpg';
-import fullstackCert from '../../../../images/fullstack_cert.jpg';
-import facebook from '../../../../images/facebook.png';
-import github from '../../../../images/github.png';
-import gmail from '../../../../images/gmail.png';
+import defaultProfile from '../../../../../../images/default_profile.jpg';
+import fullstackCert from '../../../../../../images/fullstack_cert.jpg';
+import facebook from '../../../../../../images/facebook.png';
+import github from '../../../../../../images/github.png';
+import gmail from '../../../../../../images/gmail.png';
 
 const ProfileHeader = (props) => {
   return (

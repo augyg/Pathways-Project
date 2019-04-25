@@ -3,7 +3,8 @@ import React from 'react';
 const LoginForm = (props) => {
   const renderError = () => {
     if(props.error) {
-      return <p style={{color: 'red'}}>{props.error.message}</p>
+      alert('hello');
+      //return <p style={{color: 'red'}}>{props.error.message}</p>
     } 
   }
   return (

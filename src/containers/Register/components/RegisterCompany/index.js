@@ -73,11 +73,11 @@ const RegisterCompany = (props) => {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>Password</label>
-            <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password" />
+            <input type="password" name="password" className="form-control" id="inputPassword4" placeholder="Password" />
           </div>
           <div className="form-group col-md-6">
             <label >Confirm Password</label>
-            <input type="password" name="confirm-password" class="form-control" id="inputPassword4" placeholder="Password" />
+            <input type="password" name="confirm-password" className="form-control" id="inputPassword4" placeholder="Password" />
           </div>
         </div>
 

@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import requireAuth from '../_hocs/RequireAuth';
-import ProfileHeader from './Programmer/ProfileHeader';
+import ProgrammerProfile from './containers/ProgrammerProfile';
+import CompanyProfile from './containers/CompanyProfile';
 
-class Profile extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render(){
-    return (
-      <div className="container-fluid">
-        <ProfileHeader test="test"/>
-      </div>
+const Profile = (props) => {
+  return (
+    (props.accountType === 0 ) ? (
+      <ProgrammerProfile/>
+    ) : (
+      <CompanyProfile/>
     )
-  }
+  )  
 }
 
-const mapStateToProps = (state) => ({
-  error: state.error
+const mapStateToProps = ({user}) => ({
+  accountType: user.accountType
 })
 
 export default {

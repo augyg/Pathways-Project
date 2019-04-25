@@ -22,15 +22,15 @@ class App extends Component {
   }
 }
 const loadData = (store) => {
-  let authToken = store.getState().user.authToken;
-  if(authToken) {
-    return store.dispatch(login({authToken}))
+  let auth = store.getState().auth;
+  if(auth) {
+    return store.dispatch(login({authToken: auth.token}));
   }
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
-  error: state.error
+  auth: state.auth,
+  user: state.user
 })
 
 const mapDispatchToProps = {

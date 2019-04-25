@@ -5,7 +5,7 @@ import s from './styles.css';
 import logo from './images/logo.png';
 
 const Header = (props) => {
-  let userLoggedIn = (props.user && props.user.data) ? 1 : 0;
+  let userLoggedIn = (props.user) ? 1 : 0;
 
   let headerNavOptions = [
     { link: '/profile', content: 'Profile', authState: 1 },

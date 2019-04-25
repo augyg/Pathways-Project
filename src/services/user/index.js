@@ -9,16 +9,21 @@ import {
   accountExists
 } from '../error/actions';
 
+import {
+  setAuthState, 
+  clearAuthState
+} from '../auth/actions';
+
 import cookie from 'react-cookies';
 
 export const login = (data = null) => async (dispatch, getState, api) => { 
-  console.log('login');
   let authToken = data.authToken;
   if(!authToken) {
     let response = await api.post('/login', { ...data });
     if(response.data.token) {
       authToken = response.data.token;
       cookie.save('authToken', authToken);
+      dispatch(setAuthState(response.data))
     } else {
       return dispatch(loginFailed());
     }
@@ -26,7 +31,7 @@ export const login = (data = null) => async (dispatch, getState, api) => {
 
   let response = await api.post('/getUser', {token: authToken});
   if(response.data) {
-    dispatch(setUserSession(authToken, response.data.user));
+    dispatch(setUserSession(response.data));
   } else {
     return dispatch(loginFailed());
   }
@@ -39,7 +44,7 @@ export const register = (data) => async (dispatch, getState, api) => {
     cookie.save('authToken', authToken);
     response = await api.post('/getUser', {token: authToken});
     if(response.data) {
-      dispatch(setUserSession(authToken, response.data.user));
+      dispatch(setUserSession(response.data));
     } else {
       dispatch(registerFailed());
     }
@@ -55,4 +60,5 @@ export const register = (data) => async (dispatch, getState, api) => {
 export const logout = () => async (dispatch) => {
   cookie.remove('authToken');
   dispatch(endUserSession());
+  dispatch(clearAuthState());
 };

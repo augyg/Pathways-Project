@@ -22,7 +22,7 @@ class LoginPage extends Component {
   }
 
   redirectLoggedIn () {
-    if(this.props.user && this.props.user.data) {
+    if(this.props.user) {
       return <Redirect to="/"/>
     }
   }
